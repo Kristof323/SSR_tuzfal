@@ -7,9 +7,12 @@ export class AppController {
 
   @Get()
   @Render('index')
-  getHello() {
-    return {
-      title: 'My First NestJS App'
-    }
-  }
+  async getHello() {
+  const szabalyok = await this.appService.getSzabalyok();
+
+  return {
+    title: 'My First NestJS App',
+    szabalyok: szabalyok,
+  };
+}
 }
