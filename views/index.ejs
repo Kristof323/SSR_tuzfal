@@ -12,6 +12,31 @@
     <h1><%= title %></h1>
     Hello EJS!
     <p>Szabályok száma: <%= szabalyok.length %></p>
-    <p>Az első szabály prioritása: <%= szabalyok[0].priority %></p>
+
+    <table>
+        <tr>
+  <th>Prioritás</th>
+  <th>Azonosító</th>
+  <th>MAC-cím</th>
+  <th>Bekapcsolva</th>
+        </tr>
+  <% for (const szabaly of szabalyok) { %>
+    <tr>
+      <td><%= szabaly.priority %></td>
+    </tr>
+    <tr>
+        <td><%= szabaly.id  %></td>
+    </tr>     
+    <tr>
+        <td><%= szabaly.mac %></td>
+    </tr> 
+    <tr>
+       <tr class="<%= szabaly.enabled === 0 ? 'kikapcsolt' : '' %>">
+    </tr>
+
+    
+  <% } %>
+</table>
+
 </body>
 </html>
